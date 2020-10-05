@@ -5,7 +5,7 @@ const MongoClient = require('mongodb').MongoClient;
 require('dotenv').config();
 const ObjectId = require('mongodb').ObjectId
 
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.vss5k.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.vss5k.mongodb.net/VolunteerDB?retryWrites=true&w=majority`;
 
 const app = express();
 
@@ -71,4 +71,4 @@ app.get('/', (req, res) => {
     res.send('Hello volunteer SERVER')
 })
 
-app.listen(port)
+app.listen( process.env.PORT || port)
