@@ -13,8 +13,10 @@ A single page Application with dashboard where are any volunteer can pick the da
 ## Front End Technology
 <ul>
     <li>React.js</li>
+    <li>JavaScript</li>
     <li>Bootstrap4</li>
     <li>CSS | CSS3</li>
+    <li>HTML | HTML5</li>
 </ul>
 
 ## Backend Technology
