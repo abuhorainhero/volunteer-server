@@ -1,4 +1,4 @@
-< <img src="./src/logos/Group 1329.png"/>
+<img src="./src/logos/Group 1329.png"/>
 Volunteer Network
 ======= 
 
@@ -17,7 +17,7 @@ A single page Application with dashboard where are any volunteer can pick the da
     <li>CSS | CSS3</li>
 </ul>
 
-<b>Backend Technology</b>
+## Backend Technology
 <ul>
     <li>Node.js</li>
     <li>Express.js</li>
@@ -32,3 +32,4 @@ A single page Application with dashboard where are any volunteer can pick the da
     <li>Firebase</li>
     <li>Heroku</li>
 </ul>
+=======
