@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const fileUpload = require("express-fileupload")
 const MongoClient = require('mongodb').MongoClient;
 require('dotenv').config();
 const ObjectId = require('mongodb').ObjectId
@@ -11,7 +12,7 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(cors());
-
+app.use(fileUpload())
 const port = 5000;
 
 
@@ -21,8 +22,20 @@ client.connect(err => {
     const volunteerUserCollection = client.db("VolunteerDB").collection("VolunteerUser");
 
     app.post('/addVolunteerInfo', (req, res) => {
-        const info = req.body;
-        volunteerCollection.insertOne(info)
+        // const info = req.body;
+        const file = req.files.file;
+        const title = req.body.title;
+        const description = req.body.description;
+        const date = req.body.date;
+
+        const newImage = file.data;
+        const encImage = newImage.toString('base64');
+        const image = {
+            ContentType: file.mimetype,
+            size: file.size,
+            img: Buffer.from(encImage, 'base64')
+        };
+        volunteerCollection.insertOne({title, description, date, image})
             .then(result => {
                 res.send(result.insertedCount > 0)
             })
