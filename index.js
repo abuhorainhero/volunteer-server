@@ -22,20 +22,22 @@ client.connect(err => {
     const volunteerUserCollection = client.db("VolunteerDB").collection("VolunteerUser");
 
     app.post('/addVolunteerInfo', (req, res) => {
-        // const info = req.body;
-        const file = req.files.file;
-        const title = req.body.title;
-        const description = req.body.description;
-        const date = req.body.date;
+        const info = req.body;
+        // const file = req.files.file;
+        // const title = req.body.title;
+        // const description = req.body.description;
+        // const date = req.body.date;
+        // const newImage = file.data;
+        // console.log(newImage)
+        // const encImage = newImage.toString('base64');
+        // const image = {
+        //     ContentType: file.mimetype,
+        //     size: file.size,
+        //     img: Buffer.from(encImage, 'base64')
+        // };
+        // console.log({title, description, date, image});
 
-        const newImage = file.data;
-        const encImage = newImage.toString('base64');
-        const image = {
-            ContentType: file.mimetype,
-            size: file.size,
-            img: Buffer.from(encImage, 'base64')
-        };
-        volunteerCollection.insertOne({title, description, date, image})
+        volunteerCollection.insertOne(info)
             .then(result => {
                 res.send(result.insertedCount > 0)
             })
